@@ -1,0 +1,33 @@
+{
+  "presets": [["env", { "modules": false }], "react", "stage-1"],
+  "env": {
+    "test": {
+      "plugins": [
+        ["dynamic-import-node"],
+        ["transform-es2015-modules-commonjs", { "strictMode": false }]
+      ]
+    },
+    "production": {
+      "plugins": [
+        [
+          "babel-plugin-styled-components",
+          {
+            "fileName": false,
+            "displayName": false,
+            "minify": false
+          }
+        ]
+      ]
+    }
+  },
+  "plugins": [
+    "react-hot-loader/babel",
+    [
+      "babel-plugin-styled-components",
+      {
+        "fileName": false,
+        "minify": false
+      }
+    ]
+  ]
+}
