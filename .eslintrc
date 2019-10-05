@@ -1,0 +1,27 @@
+{
+  "extends": "@appman/appman",
+  "parser": "babel-eslint",
+  "plugins": [
+    "cypress"
+  ],
+  "env": {
+    "node": true,
+    "es6": true,
+    "browser": true,
+    "jest": true,
+    "cypress/globals": true
+  },
+  "rules": {
+    "no-console": ["error", {
+      "allow": ["error"]
+    }],
+    "jsx-a11y/anchor-is-valid": 0,
+    "func-names": 0,
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": true,
+      "optionalDependencies": false,
+      "peerDependencies": false
+    }],
+    "no-underscore-dangle": 0
+  }
+}
