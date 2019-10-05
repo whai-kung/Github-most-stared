@@ -7,27 +7,10 @@
         ["transform-es2015-modules-commonjs", { "strictMode": false }]
       ]
     },
-    "production": {
-      "plugins": [
-        [
-          "babel-plugin-styled-components",
-          {
-            "fileName": false,
-            "displayName": false,
-            "minify": false
-          }
-        ]
-      ]
-    }
+    "production": {}
   },
   "plugins": [
     "react-hot-loader/babel",
-    [
-      "babel-plugin-styled-components",
-      {
-        "fileName": false,
-        "minify": false
-      }
-    ]
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
   ]
 }
