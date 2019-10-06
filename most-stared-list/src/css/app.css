@@ -1,0 +1,10 @@
+.ant-layout-content {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+@media only screen and (max-width: 767px) {
+  .ant-pagination .ant-pagination-total-text {
+    display: none;
+  }
+}

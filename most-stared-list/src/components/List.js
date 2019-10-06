@@ -1,7 +1,8 @@
 import React from 'react'
-import { Table } from 'antd'
+import { Table, Spin } from 'antd'
+import { prop } from 'ramda'
 
-const compare = (a, b) => {
+export const compare = (a, b) => {
   if (a.name > b.name) {
       return -1
   }
@@ -11,9 +12,19 @@ const compare = (a, b) => {
   return 0
 }
 
+export const TableComponent = (props) => {
+  const { columns, items } = props
+  return (
+    <Table 
+      columns={columns} 
+      dataSource={items} 
+      pagination={false} 
+      rowKey={prop('id')} 
+    />
+  )
+}
 export default (props) => {
-  console.log({props})
-  const { items, onChange } = props
+  const { items } = props
   const columns = [
     {
       title: 'Name',
@@ -38,7 +49,15 @@ export default (props) => {
       sortDirections: ['descend', 'ascend'],
     },
   ]
+  if(props.isLoading) {
+    return (
+      <Spin tip='Loading...'>
+        <TableComponent items={items} columns={columns} />
+      </Spin>
+    )
+  }
+  
   return (
-    <Table columns={columns} dataSource={items} onChange={onChange} />
+    <TableComponent items={items} columns={columns} />
   )
 }

@@ -1,5 +1,21 @@
 {
-  "presets": [["env", { "modules": false }], "react", "stage-1"],
+  // "presets": [
+  //   ["env", { "modules": false }], 
+  //   "@babel/env", 
+  //   "@babel/react",
+  //   "stage-1"
+  // ],
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      },
+      "@babel/react"
+    ]
+  ],
   "env": {
     "test": {
       "plugins": [
@@ -11,6 +27,8 @@
   },
   "plugins": [
     "react-hot-loader/babel",
-    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }]
+    ["import", { "libraryName": "antd", "libraryDirectory": "es", "style": "css" }],
+    "@babel/plugin-proposal-class-properties", 
+    "@babel/plugin-proposal-object-rest-spread"
   ]
 }
